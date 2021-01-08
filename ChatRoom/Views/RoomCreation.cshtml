@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Main page</title>
+    <!-- Bootstrap core CSS -->
+    <link>
+    <title>ChatRoom</title>
+    <link type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link type="text/css" href="css/style.css" rel="stylesheet"/>
+    <style>
+        .row {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <nav class="navbar navbar-dark bg-info static-top">
+        <div class="navbar-brand" style="margin-left: 10px">
+            <a href="#">
+                <img src="image/efrei.png" width="130" height="45" alt="background-images"/>
+            </a>
+        </div>
+        <a class="btn btn-danger my-2 my-sm-0" href="#" style="margin-right: 10px">Logout</a>
+    </nav>
+    <div id="wrapper" class="toggled">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" class="bg-secondary">
+            <ul class="list-group">
+                
+                <li class="list-group-item  list-group-item-primary">
+                    <a class="ml-5" href="/chatRoom"> < </a>
+                </li>
+            </ul>
+
+        </div>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container">
+                <form id="myForm" action="/room" method="post" onsubmit="return check()">
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-2 col-form-label">Room name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Room name">
+                        </div>
+                        <small id="alert" class="text-danger form-text" style="display: none">Name alreadly exist, please change the name</small>
+                    </div>
+               
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button id="subBtn" type="submit" class="btn btn-primary">Confirm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script>
+        
+        function check(){
+                    let name = $('#name').val();
+                    let res = false;
+                    $.ajax({
+                                    url:"/roomName",
+                                    type:"get",
+                                    data: {
+                                        'name':name
+                                    },
+                                    dataType:'json',
+                                    contentType:'application/json',
+                                    success: function(data) {
+                                          if (data.msg === 'dispo'){
+                                              if ($('#number').val() <= 0){
+                                                 $('#alert1').css('display','inline-block'); 
+                                                
+                                              }else{
+                                                  res = true;
+                                              }                        
+                                          }else{
+                                              $('#alert').css('display','inline-block');
+                                             
+                                          }
+                                        
+                                    }
+                                   
+                                })    
+                     return res;
+        }
+      // $('#myForm').submit(function(e) {
+      // 
+      // })
+    
+ 
+   
+    </script>
+</main>
+
+
+</body>
+</html>

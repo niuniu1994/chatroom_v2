@@ -1,0 +1,87 @@
+@model ChatRoom.Dto.ChatRoomInitModel
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Main page</title>
+    <!-- Bootstrap core CSS -->
+    <link>
+    <title>ChatRoom</title>
+    <link type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link type="text/css" href="css/style.css" rel="stylesheet"/>
+    <style>
+        .row {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <nav class="navbar navbar-dark bg-info static-top">
+        <div class="navbar-brand" style="margin-left: 10px">
+            <a href="#">
+                <img src="image/efrei.png" width="130" height="45" alt="background-images"/>
+            </a>
+        </div>
+        <a class="btn btn-danger my-2 my-sm-0" href="/logout" style="margin-right: 10px">Logout</a>
+    </nav>
+    <div id="wrapper" class="toggled">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" class="bg-secondary">
+            <ul class="sidebar-nav list-group text-center" id="publicRooms">
+                <li class="list-group-item-heading">
+                    Private Talks
+                </li>
+                @foreach (var room in Model.PrivateRooms)
+                {
+                    <li>
+                        <a class="chatRoom bg-light list-group-item list-group-item-action"  id="@room.Rid">@room.Name</a>
+                    </li>
+                }
+                 <li class="list-group-item  list-group-item-primary"><a class="createRoomBtn  ml-3" href="/privateTalk"> + </a></li>
+                <li class="list-group-item-heading">
+                    Public Rooms
+                </li>
+                @foreach (var room in Model.PublicRooms)
+                {
+                    <li>
+                        <a class="chatRoom list-group-item list-group-item-action"  id="@room.Rid">@room.Name</a>
+                    </li>
+                }
+                <li class="list-group-item  list-group-item-primary"><a class="createRoomBtn  ml-3" href="/room"> + </a></li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container">
+                <h2 id="roomTitle">Hall</h2>
+                <textarea id="msgList" readonly></textarea>
+                <div class="inp-wrapper">
+                    <textarea type="text" id="txtMsg"></textarea>
+                    <button id="btnSend" style="width: 100px">send</button>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="js/chatRoom.js"></script>
+    <script>
+    
+
+    </script>
+</main>
+
+
+</body>
+</html>

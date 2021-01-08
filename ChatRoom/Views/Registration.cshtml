@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Main page</title>
+    <!-- Bootstrap core CSS -->
+    <link>
+    <title>ChatRoom</title>
+    <link type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link type="text/css" href="css/style.css" rel="stylesheet"/>
+    <style>
+        .row {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <nav class="navbar navbar-dark bg-info static-top">
+        <div class="navbar-brand" style="margin-left: 10px">
+            <a href="#">
+                <img src="image/efrei.png" width="130" height="45" alt="background-images"/>
+            </a>
+        </div>
+        <a class="btn btn-danger my-2 my-sm-0" href="#" style="margin-right: 10px">Logout</a>
+    </nav>
+    <div id="wrapper" class="toggled">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" class="bg-secondary">
+            <ul class="list-group">
+
+                <li class="list-group-item  list-group-item-primary">
+                    <a class="ml-5" href="/chatRoom"> < </a>
+                </li>
+            </ul>
+
+        </div>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container">
+                <form id="myForm" action="/register" method="post" onsubmit="check()">
+                    
+                    <p id="alert" class="text-danger form-text" display="none">@ViewBag.warnning</p>
+                    <div class="form-group row">
+                        <label for="username" class="col-sm-2 col-form-label">Username</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required="required">
+                        </div>
+                        <small id="alert1" class="text-danger form-text" style="display: none">Username alreadly exist</small>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="col-sm-2 col-form-label">Nickname</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nickName" name="nickname" placeholder="Nickname" required="required">
+                        </div>
+                        <small id="alert2" class="text-danger form-text" style="display: none">Nickname alreadly exist</small>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">Confirm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script>
+    
+   function check(){
+        let userName = $('#username').val();
+            let nickName = $('#nickName').val();
+            let res = false;
+            
+                    $.ajax({
+                        url:"/registrationCheck",
+                        type:"get",
+                        data: {
+                            'username':userName,
+                            'nickName':nickName
+                        },
+                        dataType:'json',
+                        contentType:'application/json',
+                        success: function(data) {
+                              if (data.msg === 'username indispo'){
+                                   $('#alert1').css('display','inline-block');
+                              }else if (data.msg === 'nickname indispo'){
+                                   $('#alert2').css('display','inline-block');
+                              }else if (data.msg === 'null parameter'){
+                                   $('#alert3').css('display','inline-block');
+                              }else {
+                                  res = true;
+                              }
+                        }
+                    })    
+             
+            return  res;
+                    
+   }
+  
+ 
+    </script>
+</main>
+
+
+</body>
+</html>

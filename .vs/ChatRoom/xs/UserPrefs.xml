@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{A6922480-FA31-49A0-A220-35F42D3A877E}|Default">
+  <MonoDevelop.Ide.ItemProperties.ChatRoom PreferredExecutionTarget="/Applications/Google Chrome 2.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChatRoom/dao/dao.cs">
+    <Files>
+      <File FileName="ChatRoom/dao/dao.cs" Line="16" Column="33" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="ChatRoom" expanded="True" selected="True">
+            <Node name="ChatRoom" expanded="True">
+              <Node name="dao" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
