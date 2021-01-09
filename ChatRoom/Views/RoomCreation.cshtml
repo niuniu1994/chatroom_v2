@@ -43,7 +43,7 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container">
-                <form id="myForm" action="/room" method="post" onsubmit="return check()">
+                <form id="myForm" action="/room" method="post" onsubmit="check()">
                     <div class="form-group row">
                         <label for="name" class="col-sm-2 col-form-label">Room name</label>
                         <div class="col-sm-10">
@@ -54,7 +54,7 @@
                
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <button id="subBtn" type="submit" class="btn btn-primary">Confirm</button>
+                            <button type="submit" class="btn btn-primary">Confirm</button>
                         </div>
                     </div>
                 </form>
@@ -79,16 +79,10 @@
                                     dataType:'json',
                                     contentType:'application/json',
                                     success: function(data) {
-                                          if (data.msg === 'dispo'){
-                                              if ($('#number').val() <= 0){
-                                                 $('#alert1').css('display','inline-block'); 
-                                                
-                                              }else{
-                                                  res = true;
-                                              }                        
+                                          if (data.msg === 'dispo'){                                      
+                                               res = true;           
                                           }else{
                                               $('#alert').css('display','inline-block');
-                                             
                                           }
                                         
                                     }
@@ -96,11 +90,7 @@
                                 })    
                      return res;
         }
-      // $('#myForm').submit(function(e) {
-      // 
-      // })
-    
- 
+
    
     </script>
 </main>

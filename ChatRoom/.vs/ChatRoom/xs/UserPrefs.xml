@@ -2,16 +2,21 @@
   <MonoDevelop.Ide.ItemProperties.ChatRoom PreferredExecutionTarget="/Applications/Google Chrome 2.app" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
     <Files>
-      <File FileName="Program.cs" Line="16" Column="1" />
-      <File FileName="Startup.cs" Line="2" Column="20" />
-      <File FileName="appsettings.json" Line="1" Column="1" />
+      <File FileName="wwwroot/js/chatRoom.js" Line="1" Column="1" />
+      <File FileName="wwwroot/js/bootstrap.js" Line="1" Column="1" />
+      <File FileName="Program.cs" Line="10" Column="19" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ChatRoom" expanded="True">
             <Node name="ChatRoom" expanded="True">
+              <Node name="Dao" expanded="True" />
+              <Node name="Middleware" expanded="True" />
               <Node name="Views" expanded="True" />
+              <Node name="wwwroot" expanded="True">
+                <Node name="js" expanded="True" />
+              </Node>
               <Node name="Program.cs" selected="True" />
             </Node>
           </Node>

@@ -36,7 +36,7 @@ namespace ChatRoom.controller
 
         [HttpPost]
         [Route("/privateTalk")]
-        public ActionResult CreatePrivateTalk(String name)
+        public void CreatePrivateTalk(String name)
         {
             if (!string.IsNullOrEmpty(name))
             {
@@ -53,10 +53,9 @@ namespace ChatRoom.controller
                         room.Guest = guest.Uid;
                         _roomService.AddRoom(room);
                     }
+                    Response.Redirect("/chatRoom", false);
                 }
             }
-
-            return RedirectToAction("ToChatRoom", "User");
         }
 
         [HttpPost]

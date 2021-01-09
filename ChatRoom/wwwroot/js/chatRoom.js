@@ -1,4 +1,4 @@
-let server = 'ws://localhost:5000'; 
+let server = 'ws://localhost:5001'; 
 
 let WEB_SOCKET = new WebSocket(server + '/ws');
 
